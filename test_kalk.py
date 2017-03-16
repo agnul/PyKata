@@ -25,5 +25,9 @@ class KalkTest(unittest.TestCase):
     def testWithCommasNewlines(self):
         self.assertEqual(42, Kalk.add('20 , 20\n  2'))
 
+    def testWithNegatives(self):
+        self.assertRaisesRegex(ValueError, "Negative numbers are not allowed: (-\d+(, )?)+",
+                               Kalk.add, '20, -20, -10, 2')
+
 if __name__ == '__main__':
     unittest.main()
