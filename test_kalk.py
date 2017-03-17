@@ -29,5 +29,8 @@ class KalkTest(unittest.TestCase):
         self.assertRaisesRegex(ValueError, "Negative numbers are not allowed: (-\d+(, )?)+",
                                Kalk.add, '20, -20, -10, 2')
 
+    def testWithCustomDelimiters(self):
+        self.assertEqual(42, Kalk.add("//#\n20,10#5\n5#2"))
+
 if __name__ == '__main__':
     unittest.main()
